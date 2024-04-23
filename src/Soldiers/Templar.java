@@ -1,9 +1,17 @@
+package Soldiers;
+
+import Abilities.Attacker;
+import Abilities.Defender;
+import Abilities.GodCaller;
+import Soldiers.Soldier;
+
 import java.util.Arrays;
 import java.util.Random;
 
 public class Templar extends Soldier implements Attacker, Defender, GodCaller {
     private static int nextId = 1;
-    private int id;
+    private final int id;
+
     public Templar() {
         super("Templar", 6);
         this.id = nextId++;
@@ -12,7 +20,7 @@ public class Templar extends Soldier implements Attacker, Defender, GodCaller {
     @Override
     public void report() {
         String array = Arrays.toString(this.getClass().getInterfaces());
-        System.out.println(this + " HERE " + array.replace("interface ", ""));
+        System.out.println(this + " HERE " + array.replace("interface ", "").replace("Abilities.",""));
     }
 
     @Override

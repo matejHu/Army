@@ -1,8 +1,16 @@
+package Soldiers;
+
+import Abilities.Attacker;
+import Abilities.Defender;
+import Abilities.GodCaller;
+import Soldiers.Soldier;
+
 import java.util.Arrays;
 import java.util.Random;
-public class Horseman extends Soldier implements Attacker, Defender, GodCaller{
+
+public class Horseman extends Soldier implements Attacker, Defender, GodCaller {
     private static int nextId = 1;
-    private int id;
+    private final int id;
 
     public Horseman() {
         super("Horseman", 5);
@@ -12,16 +20,19 @@ public class Horseman extends Soldier implements Attacker, Defender, GodCaller{
     @Override
     public void report() {
         String array = Arrays.toString(this.getClass().getInterfaces());
-        System.out.println(this + " HERE " + array.replace("interface ", ""));
+        System.out.println(this + " HERE " + array.replace("interface ", "").replace("Abilities.",""));
     }
+
     @Override
     public void attack() {
         System.out.println(this + " deals " + this.damage + " dmg");
     }
+
     @Override
     public void defend() {
         System.out.println(this + " deals " + this.damage + " dmg");
     }
+
     @Override
     public void callGod() {
         Random chance = new Random();

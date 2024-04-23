@@ -1,17 +1,26 @@
+package Soldiers;
+
+import Abilities.Attacker;
+import Abilities.BeNaked;
+import Soldiers.Soldier;
+
 import java.util.Arrays;
 
 public class Goblin extends Soldier implements Attacker, BeNaked {
     private static int nextId = 1;
-    private int id;
+    private final int id;
+
     public Goblin() {
         super("Goblin", 1);
         this.id = nextId++;
     }
+
     @Override
     public void report() {
         String array = Arrays.toString(this.getClass().getInterfaces());
-        System.out.println(this + " HERE " + array.replace("interface ", ""));
+        System.out.println(this + " HERE " + array.replace("interface ", "").replace("Abilities.",""));
     }
+
     @Override
     public void attack() {
         System.out.println(this + " deals " + this.damage + " dmg");

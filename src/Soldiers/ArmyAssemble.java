@@ -1,5 +1,6 @@
+package Soldiers;
+
 import Abilities.*;
-import Soldiers.*;
 
 import java.util.ArrayList;
 import java.util.List;

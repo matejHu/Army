@@ -1,8 +1,14 @@
+package Soldiers;
+
+import Abilities.Attacker;
+import Abilities.BeNaked;
+import Soldiers.Soldier;
+
 import java.util.Arrays;
 
 public class NakedWarrior extends Soldier implements Attacker, BeNaked {
     private static int nextId = 1;
-    private int id;
+    private final int id;
 
     public NakedWarrior() {
         super("NakedWarrior", 2);
@@ -12,7 +18,7 @@ public class NakedWarrior extends Soldier implements Attacker, BeNaked {
     @Override
     public void report() {
         String array = Arrays.toString(this.getClass().getInterfaces());
-        System.out.println(this + " HERE " + array.replace("interface ", ""));
+        System.out.println(this + " HERE " + array.replace("interface ", "").replace("Abilities.",""));
     }
 
     @Override
